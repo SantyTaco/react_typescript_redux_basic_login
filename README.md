@@ -1,6 +1,6 @@
 # React-Typescript-Redux Example
 ## Description
-This example implements redux as a state management and simulate a login function
+This example implements redux as a state management and simulate a login function.
 There are two unit test for reducer and creator files
 
 ## installing dependecies
