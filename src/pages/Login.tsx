@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators } from "../state";
-
+import { useNavigate } from 'react-router-dom';
 import "./Login.css";
 
 const LoginPageMain = () => {
@@ -9,7 +9,8 @@ const LoginPageMain = () => {
   const [password, setPassword] = useState("");
   const { data, error, loading } = useSelector((state: any) => state["login"]);
   const dispatch: any = useDispatch();
-
+  const navigate = useNavigate();
+  if(data?.authToken) navigate('/landingPage');
   console.log("data", data);
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -17,6 +18,9 @@ const LoginPageMain = () => {
     event.preventDefault();
     dispatch(actionCreators.loginRemoteDataSource(userName, password));
   };
+
+
+
   return (
     <div>
       <form id="login_form" className="form-center" onSubmit={handleOnSubmit}>
